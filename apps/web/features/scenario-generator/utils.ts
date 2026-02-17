@@ -26,12 +26,19 @@ export function mapRows(payload: unknown, fallback: FormState): ResultRow[] {
 
   return items.map((item) => {
     const row = isRecord(item) ? item : {};
+    const product = isRecord(row.product) ? row.product : {};
+
     return {
       title: toText(row.title ?? row.name),
       status: toText(row.status),
       prompt: toText(row.prompt, toText(fallback.prompt)),
       scenarioType: toText(row.scenarioType, fallback.scenarioType),
       platform: toText(row.platform, fallback.platform),
+      productName: toText(
+        product.name,
+        toText(fallback.product?.name),
+      ),
+      productSegment: toText(product.segment),
     };
   });
 }

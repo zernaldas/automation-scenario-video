@@ -16,7 +16,10 @@ export function useScenarioGenerator() {
     return JSON.stringify(result, null, 2);
   }, [result]);
 
-  const setFormField = (field: keyof FormState, value: string) => {
+  const setFormField = <K extends keyof FormState>(
+    field: K,
+    value: FormState[K],
+  ) => {
     setForm((prev) => ({
       ...prev,
       [field]: value,

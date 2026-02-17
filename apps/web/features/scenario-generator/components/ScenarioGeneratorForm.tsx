@@ -2,12 +2,16 @@ import type { FormEvent } from "react";
 
 import { PLATFORM_OPTIONS, SCENARIO_TYPE_OPTIONS } from "../constants";
 import type { FormState } from "../types";
+import { ProductSearchField } from "./ProductSearchField";
 
 type ScenarioGeneratorFormProps = {
   form: FormState;
   loading: boolean;
   onSubmit: (event: FormEvent<HTMLFormElement>) => Promise<void>;
-  onFieldChange: (field: keyof FormState, value: string) => void;
+  onFieldChange: <K extends keyof FormState>(
+    field: K,
+    value: FormState[K],
+  ) => void;
 };
 
 export function ScenarioGeneratorForm({
@@ -38,6 +42,11 @@ export function ScenarioGeneratorForm({
             placeholder="Contoh: Buatkan scenario login dengan validasi error."
           />
         </div>
+
+        <ProductSearchField
+          value={form.product}
+          onChange={(value) => onFieldChange("product", value)}
+        />
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>

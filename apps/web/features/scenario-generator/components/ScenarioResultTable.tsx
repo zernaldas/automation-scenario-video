@@ -15,6 +15,8 @@ export function ScenarioResultTable({ rows }: ScenarioResultTableProps) {
             <th className="px-3 py-2 font-semibold">Prompt</th>
             <th className="px-3 py-2 font-semibold">Scenario Type</th>
             <th className="px-3 py-2 font-semibold">Platform</th>
+            <th className="px-3 py-2 font-semibold">Product Name</th>
+            <th className="px-3 py-2 font-semibold">Product Segment</th>
           </tr>
         </thead>
         <tbody>
@@ -26,11 +28,13 @@ export function ScenarioResultTable({ rows }: ScenarioResultTableProps) {
                 <td className="px-3 py-2">{row.prompt}</td>
                 <td className="px-3 py-2">{row.scenarioType}</td>
                 <td className="px-3 py-2">{row.platform}</td>
+                <td className="px-3 py-2">{row.productName}</td>
+                <td className="px-3 py-2">{row.productSegment}</td>
               </tr>
             ))
           ) : (
             <tr className="border-t">
-              <td className="px-3 py-2 text-slate-500" colSpan={5}>
+              <td className="px-3 py-2 text-slate-500" colSpan={7}>
                 Tidak ada data yang bisa ditampilkan.
               </td>
             </tr>

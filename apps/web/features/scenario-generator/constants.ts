@@ -6,6 +6,7 @@ export const DEFAULT_FORM: FormState = {
   prompt: "",
   scenarioType: "education",
   platform: "web",
+  product: null as any,
 };
 
 export const SCENARIO_TYPE_OPTIONS: SelectOption[] = [
